@@ -1,4 +1,7 @@
 .example-container {
-    height: 100%;
-    margin: 10px;
-  }
+  min-height: 100%;
+  /* margin: 10px; */
+}
+mat-sidenav-content{
+  padding: 2% !important;
+}

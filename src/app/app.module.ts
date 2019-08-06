@@ -16,7 +16,7 @@ import { ColumnChartComponent } from './examples/gcharts/column-chart/column-cha
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, data: { title: 'Home Component' } },
   { path: 'home', component: HomeComponent, data: { title: 'Home Component' } },
-  { path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard Component' } },
+  // { path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard Component' } },
   { path: 'charts/column', component: ColumnChartComponent, data: { title: 'Reports Component' }}
 ];
 

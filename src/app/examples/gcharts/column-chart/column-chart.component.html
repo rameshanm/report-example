@@ -1,19 +1,65 @@
+<mat-grid-list cols="2" rowHeight="1:1">
+   <mat-grid-tile>
+      <mat-card class="example-card">
+         <mat-card-header>
+               <mat-card-title> Users of The Games Report </mat-card-title>
+         </mat-card-header>
+         <mat-card-content>
+            <google-chart #chartBar
+               [title]="title"  
+               [type]="type"  
+               [data]="dataGames"  
+               [columnNames]="columnNames"  
+               [options]="options"  
+               [width]="width"  
+               [height]="height"> 
+            </google-chart>
+         </mat-card-content>
+      </mat-card>
+   </mat-grid-tile>
+   <mat-grid-tile>
+      <mat-card class="example-card">
+         <mat-card-header>
+               <mat-card-title> Levels of The Games Report </mat-card-title>
+         </mat-card-header>
+         <mat-card-content>
+            <google-chart #chartPie  
+               [title]="titleLevel"  
+               [type]="typeLevel"  
+               [data]="dataDificulty"  
+               [columnNames]="columnLevel"  
+               [options]="optionsLevel"  
+               [width]="width"  
+               [height]="height"> 
+            </google-chart>
+         </mat-card-content>
+      </mat-card>
+   </mat-grid-tile>
+   <!-- <mat-grid-tile>3</mat-grid-tile>
+   <mat-grid-tile>4</mat-grid-tile> -->
+ </mat-grid-list>
 
-<div>
+ <mat-grid-list cols="2" rowHeight="1:1">
    <mat-card class="example-card">
       <mat-card-header>
-            <mat-card-title>Column Chart</mat-card-title>
+            <mat-card-title> Users of The Games Report </mat-card-title>
       </mat-card-header>
       <mat-card-content>
-         <google-chart #chart  
+         <google-chart #chartBar
             [title]="title"  
-            [type]="type"  
-            [data]="data"  
-            [columnNames]="columnNames"  
-            [options]="options"  
-            [width]="width"  
+            [type]="typeLine"  
+            [data]="dataLine"  
+            [columnNames]="columnLine"
+            [options]="options"
+            [width]="widthLarge"
             [height]="height"> 
          </google-chart>
       </mat-card-content>
    </mat-card>
+ </mat-grid-list>
+<!-- <div>
+   
 </div>
+<div>
+   
+</div> -->
