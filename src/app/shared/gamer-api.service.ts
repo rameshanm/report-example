@@ -9,8 +9,8 @@ import { Gamer } from './gamer-model';
 })
 export class GamerApiService {
 
-  // baseurl = 'http://localhost:8082';
-  baseurl = 'http://10.190.4.236:8075';
+  baseurl = 'http://localhost:8082';
+  // baseurl = 'http://10.190.4.236:8075';
 
   constructor(private _http: HttpClient) { }
 
