@@ -8,11 +8,9 @@ import { GamerApiService } from 'src/app/shared/gamer-api.service';
 })
 export class ColumnChartComponent implements OnInit {
 
-  constructor(private gamerService: GamerApiService) {
-    // this.getGamerData();
-   }
+  constructor(private gamerService: GamerApiService) { }
 
-  title = 'Game and Gamers Report';
+  title = 'Games and Gamers Report';
   titleLevel = 'Difficulties of Games Report';
   type = 'ColumnChart';
   typeLevel = 'PieChart';
@@ -50,9 +48,7 @@ export class ColumnChartComponent implements OnInit {
     this.getGamerData();
   }
 
-  ngAfterViewInit() {
-    // this.getGamerData();
-  }
+  ngAfterViewInit() { }
 
   getGamerData() {
     this.gamerService.getAllGamers().subscribe( res => {
@@ -74,14 +70,11 @@ export class ColumnChartComponent implements OnInit {
           }
        });
        Object.keys(this.games).forEach((game) => {
-        // console.info('this.games', game, this.games[game].length);
         this.dataGames.push([game, this.games[game].length]);
        });
        Object.keys(this.levels).forEach((level) => {
-        // console.info('this.games', game, this.games[game].length);
         this.dataDificulty.push([level, this.levels[level].length]);
        });
     });
-    // console.info('chartBar', chartBar);
   }
 }

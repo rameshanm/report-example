@@ -7,8 +7,6 @@ import { Gamer } from '../shared/gamer-model';
 import { DataSource } from '@angular/cdk/table';
 import { Observable } from 'rxjs';
 
-  
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -16,12 +14,9 @@ import { Observable } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
 
-public ELEMENT_DATA: Gamer[];
-  // dataSource = new MatTableDataSource<Gamer[]>();
-  dataSource;
-  gamers: MatTableDataSource<Gamer[]>;
-  array: Gamer;
-  displayedColumns: string[] = ['id', 'username', 'game', 'difficulty', 'startTime', 'endTime', 'score'];
+  public ELEMENT_DATA: any[];
+  dataSource: MatTableDataSource<any>;
+  displayedColumns: any[];
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -29,23 +24,41 @@ public ELEMENT_DATA: Gamer[];
   constructor(private _gamerService: GamerApiService) { }
 
   ngOnInit() {
-    // console.log("Load Data into Table");
     this.getGamerData();
   }
 
   getGamerData() {
     this._gamerService.getAllGamers().subscribe( res => {
-        this.ELEMENT_DATA = res;
-        this.dataSource = new MatTableDataSource<Gamer>(this.ELEMENT_DATA);
-        console.info('this.dataSource', this.dataSource, this.ELEMENT_DATA);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+      this.ELEMENT_DATA = res;
+      this.dataSource = new MatTableDataSource<any>(this.ELEMENT_DATA);
+      console.log(this.dataSource);
+      this.displayedColumns = this.getColumnNames(this.dataSource.filteredData);
+      console.log(this.displayedColumns);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
+  }
+
+  getColumnNames(data: any) : any[] {
+    var result = [];
+    if(data === undefined) {
+      console.log("Data undefined");
+      return null;
+    } else {
+      for (let index = 0; index < data.length; index++) {
+        for (let key in data[index]) {
+          if (result.indexOf(key) === -1 ) {
+            result.push(key);
+          }
+        }
+      }
+      console.log("Column Names : " + result);
+      return result;
+    }
   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }

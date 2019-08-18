@@ -18,7 +18,7 @@
             </ng-container>
             
             <!-- UserName Column -->
-            <ng-container matColumnDef="username">
+            <ng-container matColumnDef="userName">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> UserName </th>
                 <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
             </ng-container>
@@ -60,6 +60,42 @@
         <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
     </div>
 </div>
-<!-- <div *ngFor="let gamer of gamers">
-    <p>{{gamer.id}} - {{gamer.userName}} - {{gamer.game}} - {{gamer.difficulty}} - {{gamer.score}}</p>
+<br>
+<br>
+<!-- <div *ngFor="let c of displayedColumns">
+    <div class="mat-elevation-z8">
+
+        <table mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{c}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element.c}} </td>
+            </ng-container>
+            <ng-container matColumnDef="userName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{c}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element.c}} </td>
+            </ng-container>
+            <ng-container matColumnDef="game">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{c}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element.c}} </td>
+            </ng-container>
+            <ng-container matColumnDef="difficulty">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{c}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element.c}} </td>
+            </ng-container>
+            <ng-container matColumnDef="startTime">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{c}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element.c}} </td>
+            </ng-container>
+            <ng-container matColumnDef="endTime">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{c}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element.c}} </td>
+            </ng-container>
+            <ng-container matColumnDef="score">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{c}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element.c}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
 </div> -->

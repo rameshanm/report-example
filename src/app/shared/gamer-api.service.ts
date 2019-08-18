@@ -10,7 +10,6 @@ import { Gamer } from './gamer-model';
 export class GamerApiService {
 
   baseurl = 'http://localhost:8075';
-  // baseurl = 'http://10.190.4.236:8075';
 
   constructor(private _http: HttpClient) { }
 
@@ -23,8 +22,8 @@ export class GamerApiService {
   }
 
   // GET
-  getAllGamers(): Observable<Gamer[]> {
-    return this._http.get<Gamer[]>(this.baseurl + '/api/gamer/')
+  getAllGamers(): Observable<any> {
+    return this._http.get<any>(this.baseurl + '/api/gamer/')
     .pipe(
       retry(1),
       catchError(this.errorHandl)
