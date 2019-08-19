@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FlexmonsterPivot } from 'ng-flexmonster';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,13 @@ export class DashboardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  @ViewChild('pivot', {static: false}) pivot: FlexmonsterPivot;
+  public pivotReport = {
+    dataSource: {
+      fileName: 'http://localhost:8075/api/gamer'
+    }
   }
 
 }
